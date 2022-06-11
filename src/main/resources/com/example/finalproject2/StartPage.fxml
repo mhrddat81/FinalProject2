@@ -9,33 +9,26 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
-            prefWidth="600.0" xmlns="http://javafx.com/javafx/18"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.finalproject2.StartPageController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.finalproject2.StartPageController">
 
    <children>
-      <TextField focusTraversable="false" layoutX="193.0" layoutY="83.0" prefHeight="26.0" prefWidth="214.0"
-                 promptText="username" />
-      <Hyperlink focusTraversable="false" layoutX="192.0" layoutY="160.0" onAction="#onForgotPasswordClicked"
-                 text="forgot password?" />
-      <Button fx:id="loginBtn" defaultButton="true" focusTraversable="false" layoutX="192.0" layoutY="268.0"
-              mnemonicParsing="false" onAction="#onLoginBtnClicked" prefHeight="37.0" prefWidth="90.0" text="login">
+      <TextField focusTraversable="false" layoutX="193.0" layoutY="83.0" prefHeight="26.0" prefWidth="214.0" promptText="username" />
+      <Hyperlink focusTraversable="false" layoutX="192.0" layoutY="160.0" onAction="#onForgotPasswordClicked" text="forgot password?" />
+      <Button fx:id="loginBtn" defaultButton="true" focusTraversable="false" layoutX="192.0" layoutY="268.0" mnemonicParsing="false" onAction="#onLoginBtnClicked" prefHeight="37.0" prefWidth="90.0" text="login">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="signUpBtn" focusTraversable="false" layoutX="317.0" layoutY="267.0" mnemonicParsing="false"
-              onAction="#onFirstSignUpBtnCLicked" prefHeight="38.0" prefWidth="90.0" text="sign up">
+      <Button fx:id="signUpBtn" focusTraversable="false" layoutX="317.0" layoutY="267.0" mnemonicParsing="false" onAction="#onFirstSignUpBtnCLicked" prefHeight="38.0" prefWidth="90.0" text="sign up">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
       <Label fx:id="welcomeLbl" layoutX="286.0" layoutY="336.0" text="Label" textAlignment="CENTER" />
-      <PasswordField focusTraversable="false" layoutX="192.0" layoutY="135.0" prefHeight="26.0" prefWidth="214.0"
-                     promptText="password" />
-      <Label layoutX="178.0" layoutY="34.0" text="you are now signed up! ">
+      <PasswordField focusTraversable="false" layoutX="192.0" layoutY="135.0" prefHeight="26.0" prefWidth="214.0" promptText="password" />
+      <Label fx:id="signUpMassage" layoutX="265.0" layoutY="47.0" text="Label" textAlignment="CENTER">
          <font>
-            <Font size="23.0" />
+            <Font size="24.0" />
          </font>
       </Label>
    </children>
