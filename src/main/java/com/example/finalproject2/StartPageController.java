@@ -30,6 +30,7 @@ public class StartPageController {
     protected void onLoginBtnClicked() {
         welcomeLbl.setText("login is activated!");
     }
+
     @FXML
     protected void onFirstSignUpBtnCLicked(ActionEvent event ) throws IOException {
         welcomeLbl.setText("signUp is activated!");
@@ -39,6 +40,7 @@ public class StartPageController {
         stage.setScene(scene);
         stage.show();
     }
+
     @FXML
     protected void onForgotPasswordClicked(ActionEvent event)throws IOException{
         welcomeLbl.setText("forgot password is activated!");
@@ -48,6 +50,7 @@ public class StartPageController {
         stage.setScene(scene);
         stage.show();
     }
+
     @FXML
     protected void onBackBtnClicked(ActionEvent event)throws IOException{
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("StartPage.fxml")));
@@ -56,6 +59,7 @@ public class StartPageController {
         stage.setScene(scene);
         stage.show();
     }
+
     @FXML
     protected void onSecondSignUpBtnClicked(ActionEvent event)throws IOException{
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("StartPage.fxml")));
@@ -64,11 +68,13 @@ public class StartPageController {
         stage.setScene(scene);
         stage.show();
     }
+
     @FXML
     protected void onSendEmailBtnClicked() {
         SendEmailBtn.setText("Email sent");
         SendEmailBtn.setDisable(true);
     }
+
     @FXML
     protected void onSubmitBtnClicked(ActionEvent event)throws IOException{
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("StartPage.fxml")));
