@@ -1,6 +1,7 @@
 package com.example.finalproject2;
 
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -10,21 +11,25 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.util.Objects;
 import java.util.Timer;
+import java.util.TimerTask;
+
 
 public class StartPageController {
 
    private Stage stage;
    private Scene scene;
    private Parent root;
+    static double ii;
 
 
     @FXML
     public Label signUpMassage;
     public Button SendEmailBtn;
+    public ProgressBar prgs;
+
 
 
 
@@ -80,7 +85,9 @@ public class StartPageController {
     @FXML
     protected void onSendEmailBtnClicked() {
         SendEmailBtn.setText("Email sent");
-        SendEmailBtn.setDisable(true);
+        prgs.setVisible(true);
+
+
     }
 
     @FXML
