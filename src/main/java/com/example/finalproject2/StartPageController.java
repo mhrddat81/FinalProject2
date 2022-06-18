@@ -26,12 +26,12 @@ public class StartPageController {
     public Label signUpMassage;
     public Button SendEmailBtn;
     public ProgressBar prgs;
-    public Text FirstNameTxt,LastNameTxt,FieldTxt,phonetxt,emailtxt,usernametxt,passwordtxt;
-    public TextField nameTxt,fieldTxt,LastnameTxt,phoneTXT,emailTXT,usernameTXT,passwordTXT;
+    public Text FirstNameTxt,LastNameTxt,FieldTxt,phonetxt,emailtxt,usernametxt,passwordtxt,idtxt;
+    public TextField nameTxt,fieldTxt,LastnameTxt,phoneTXT,emailTXT,usernameTXT,passwordTXT,idTXT;
 
 
 
-    private boolean signUpCheck(TextField feild,Text text){
+    private boolean signUpCheck(TextField feild,Text text){    //name , last name , field
             text.setVisible(false);
             if(feild.getText().length()==0){
                 text.setText("enter something");
@@ -52,10 +52,10 @@ public class StartPageController {
             }
             return true;
     }
-    private boolean signUpCheckPasswordAndUsername(TextField feild,Text text){
+    private boolean signUpCheckPasswordAndUsername(TextField field,Text text){     // username , password
         text.setVisible(false);
         if(fieldTxt.getText().length()==0) {
-            text.setText("enter some bullshit");
+            text.setText("enter something");
             text.setVisible(true);
             return false;
         }
@@ -65,6 +65,14 @@ public class StartPageController {
                 text.setVisible(true);
                 return false;
             }
+        for (int i = 0; i <field.getText().length(); i++) {
+            if(!(Character.isLetter(field.getText().charAt(i))||Character.isDigit(field.getText().charAt(i)))) {
+                text.setText("must be letter or digit");
+                text.setVisible(true);
+                return false;
+            }
+        }
+        text.setVisible(false);
             return true;
 
     }
@@ -132,8 +140,6 @@ public class StartPageController {
         b=signUpCheck(nameTxt,FirstNameTxt);
         b=signUpCheckPasswordAndUsername(usernameTXT, usernametxt);
         b=signUpCheckPasswordAndUsername(passwordTXT, passwordtxt);
-
-
         return signUpCheck(nameTxt,FirstNameTxt)&&signUpCheck(LastnameTxt,LastNameTxt)
                 &&signUpCheck(fieldTxt,FieldTxt)&&signUpCheckPasswordAndUsername(passwordTXT, passwordtxt)
                 &&signUpCheckPasswordAndUsername(usernameTXT, usernametxt);
@@ -143,7 +149,6 @@ public class StartPageController {
     protected void onSendEmailBtnClicked() {
         SendEmailBtn.setText("Email sent");
         prgs.setVisible(true);
-
 
     }
 
