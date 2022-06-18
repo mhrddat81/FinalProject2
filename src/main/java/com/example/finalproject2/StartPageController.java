@@ -1,20 +1,17 @@
 package com.example.finalproject2;
 
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ProgressBar;
+import javafx.scene.control.*;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Objects;
-import java.util.Timer;
-import java.util.TimerTask;
+
 
 
 public class StartPageController {
@@ -29,8 +26,27 @@ public class StartPageController {
     public Label signUpMassage;
     public Button SendEmailBtn;
     public ProgressBar prgs;
+    public Text FirstNameTxt;
+
+    public TextField nameTxt,FeildTxt,LastnameTxt;
 
 
+    private boolean signUpCheck(TextField kossher,Text text){
+        text.setVisible(false);
+        if (kossher.getText().length()>15){
+            text.setText("must be less than 15 char");
+            text.setVisible(true);
+            return false;
+        }
+        for (int i = 0; i <kossher.getText().length(); i++) {
+            if(!Character.isLetter(kossher.getText().charAt(i))) {
+                text.setText("must be letter");
+                text.setVisible(true);
+                return false;
+            }
+        }
+        return true;
+    }
 
 
 
@@ -44,6 +60,7 @@ public class StartPageController {
         stage.show();
     }
 
+
     @FXML
     protected void onFirstSignUpBtnCLicked(ActionEvent event ) throws IOException {
 
@@ -51,7 +68,9 @@ public class StartPageController {
         stage =(Stage)((Node)event.getSource()).getScene().getWindow();
         scene =new Scene(root);
         stage.setScene(scene);
+
         stage.show();
+
     }
 
     @FXML
@@ -75,11 +94,14 @@ public class StartPageController {
 
     @FXML
     protected void onSecondSignUpBtnClicked(ActionEvent event)throws IOException{
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("StartPage.fxml")));
-        stage =(Stage)((Node)event.getSource()).getScene().getWindow();
-        scene =new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        if(signUpCheck(nameTxt,FirstNameTxt)) {
+            TextInputDialog dialog = new TextInputDialog("hello");
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("StartPage.fxml")));
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        }
     }
 
     @FXML

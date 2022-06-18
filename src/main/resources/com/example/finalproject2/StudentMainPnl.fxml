@@ -8,16 +8,16 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="567.0" prefWidth="811.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.finalproject2.StudentPageController">
+<AnchorPane prefHeight="629.0" prefWidth="956.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.finalproject2.StudentPageController">
    <children>
       <Text layoutX="45.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Close Events:">
          <font>
             <Font size="19.0" />
          </font></Text>
-      <Text layoutX="687.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Profile" />
-      <Button layoutX="312.0" layoutY="52.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="186.0" text="Massenger" />
+      <Text layoutX="814.0" layoutY="114.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Profile" />
+      <Button layoutX="385.0" layoutY="57.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="186.0" text="Massenger" />
       <Line endX="57.000030517578125" endY="-17.600006103515625" layoutX="115.0" layoutY="204.0" startX="-99.79999542236328" startY="-17.600006103515625" />
-      <Button fx:id="signOutBtn" layoutX="35.0" layoutY="27.0" mnemonicParsing="false" text="sign out" />
+      <Button fx:id="signOutBtn" layoutX="35.0" layoutY="27.0" mnemonicParsing="false" onAction="#onLogoutBtnClicked" text="sign out" />
       <Label fx:id="time" layoutX="35.0" layoutY="67.0" text="time:">
          <font>
             <Font size="23.0" />
