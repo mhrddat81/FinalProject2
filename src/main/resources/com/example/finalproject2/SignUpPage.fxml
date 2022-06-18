@@ -10,9 +10,9 @@
    <children>
       <TextField fx:id="nameTxt" layoutX="105.0" layoutY="74.0" />
       <TextField fx:id="LastnameTxt" layoutX="332.0" layoutY="74.0" />
-      <TextField layoutX="105.0" layoutY="245.0" prefHeight="26.0" prefWidth="377.0" promptText="example@email.com" />
-      <TextField layoutX="105.0" layoutY="299.0" prefHeight="26.0" prefWidth="377.0" promptText="09*********" />
-      <TextField layoutX="105.0" layoutY="136.0" promptText="0123456789" />
+      <TextField fx:id="emailTXT" layoutX="105.0" layoutY="245.0" prefHeight="26.0" prefWidth="377.0" promptText="example@email.com" />
+      <TextField fx:id="phoneTXT" layoutX="105.0" layoutY="299.0" prefHeight="26.0" prefWidth="377.0" promptText="09*********" />
+      <TextField fx:id="idTXT" layoutX="105.0" layoutY="136.0" promptText="0123456789" />
       <Text layoutX="105.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First name" />
       <Text layoutX="332.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last name" />
       <Text layoutX="105.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID" />
@@ -23,16 +23,16 @@
       <Button defaultButton="true" layoutX="337.0" layoutY="348.0" mnemonicParsing="false" onAction="#onSecondSignUpBtnClicked" prefHeight="37.0" prefWidth="150.0" text="sign up" />
       <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#onBackBtnClicked" text="back" />
       <Text fx:id="FirstNameTxt" fill="#ff0202" layoutX="111.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="must be smaller than 15 char" />
-      <Text fx:id="LAstNameTxt" fill="#ff0202" layoutX="344.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="must be smaller than 15 char" />
+      <Text fx:id="LastNameTxt" fill="#ff0202" layoutX="344.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="must be smaller than 15 char" />
       <TextField fx:id="fieldTxt" layoutX="105.0" layoutY="187.0" />
-      <TextField layoutX="332.0" layoutY="187.0" />
+      <TextField fx:id="usernameTXT" layoutX="332.0" layoutY="187.0" />
       <Text layoutX="105.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Field" />
       <Text layoutX="332.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username" />
-      <Text fx:id="IdTxt" fill="#ff0202" layoutX="169.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="must be 10 char" />
+      <Text fx:id="Idtxt" fill="#ff0202" layoutX="169.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="must be 10 char" />
       <Text fx:id="DateOfBirthTxt" fill="#ff0202" layoutX="351.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="must be smaller than 15 char" />
-      <Text fx:id="UsernameTxt" fill="#ff0202" layoutX="359.0" layoutY="226.0" strokeType="OUTSIDE" strokeWidth="0.0" text="must be smaller than 15 char" />
+      <Text fx:id="usernametxt" fill="#ff0202" layoutX="359.0" layoutY="226.0" strokeType="OUTSIDE" strokeWidth="0.0" text="must be smaller than 15 char" />
       <Text fx:id="FieldTxt" fill="#ff0202" layoutX="118.0" layoutY="227.0" strokeType="OUTSIDE" strokeWidth="0.0" text="must be smaller than 15 char" />
-      <Text fx:id="EmailTxt" fill="#ff0202" layoutX="335.0" layoutY="287.0" strokeType="OUTSIDE" strokeWidth="0.0" text="letters and number only" />
-      <Text fx:id="PhoneNumberTxt" fill="#ff0202" layoutX="330.0" layoutY="338.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Number only" />
+      <Text fx:id="emailtxt" fill="#ff0202" layoutX="335.0" layoutY="287.0" strokeType="OUTSIDE" strokeWidth="0.0" text="letters and number only" />
+      <Text fx:id="phonetxt" fill="#ff0202" layoutX="330.0" layoutY="338.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Number only" />
    </children>
 </AnchorPane>

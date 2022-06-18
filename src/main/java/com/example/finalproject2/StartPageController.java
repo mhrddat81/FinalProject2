@@ -26,26 +26,31 @@ public class StartPageController {
     public Label signUpMassage;
     public Button SendEmailBtn;
     public ProgressBar prgs;
-    public Text FirstNameTxt;
+    public Text FirstNameTxt,LastNameTxt,FieldTxt,phonetxt,emailtxt,usernametxt;
+    public TextField nameTxt,fieldTxt,LastnameTxt,phoneTXT,emailTXT,usernameTXT;
 
-    public TextField nameTxt,FeildTxt,LastnameTxt;
 
 
     private boolean signUpCheck(TextField kossher,Text text){
-        text.setVisible(false);
-        if (kossher.getText().length()>15){
-            text.setText("must be less than 15 char");
-            text.setVisible(true);
-            return false;
-        }
-        for (int i = 0; i <kossher.getText().length(); i++) {
-            if(!Character.isLetter(kossher.getText().charAt(i))) {
-                text.setText("must be letter");
+            text.setVisible(false);
+            if(kossher.getText().length()==0){
+                text.setText("enter bullshit");
                 text.setVisible(true);
                 return false;
             }
-        }
-        return true;
+            if (kossher.getText().length()>15){
+                text.setText("must be less than 15 char");
+                text.setVisible(true);
+                return false;
+            }
+            for (int i = 0; i <kossher.getText().length(); i++) {
+                if(!Character.isLetter(kossher.getText().charAt(i))) {
+                    text.setText("must be letter");
+                    text.setVisible(true);
+                    return false;
+                }
+            }
+            return true;
     }
 
 
@@ -94,7 +99,7 @@ public class StartPageController {
 
     @FXML
     protected void onSecondSignUpBtnClicked(ActionEvent event)throws IOException{
-        if(signUpCheck(nameTxt,FirstNameTxt)) {
+        if(checkall()){
             TextInputDialog dialog = new TextInputDialog("hello");
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("StartPage.fxml")));
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -102,6 +107,14 @@ public class StartPageController {
             stage.setScene(scene);
             stage.show();
         }
+    }
+
+    public boolean checkall(){
+        boolean b=true;
+        b=signUpCheck(fieldTxt,FieldTxt);
+        b=signUpCheck(LastnameTxt,LastNameTxt);
+        b=signUpCheck(nameTxt,FirstNameTxt);
+        return signUpCheck(nameTxt,FirstNameTxt)&&signUpCheck(LastnameTxt,LastNameTxt)&&signUpCheck(fieldTxt,FieldTxt);
     }
 
     @FXML
