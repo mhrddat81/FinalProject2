@@ -26,31 +26,47 @@ public class StartPageController {
     public Label signUpMassage;
     public Button SendEmailBtn;
     public ProgressBar prgs;
-    public Text FirstNameTxt,LastNameTxt,FieldTxt,phonetxt,emailtxt,usernametxt;
-    public TextField nameTxt,fieldTxt,LastnameTxt,phoneTXT,emailTXT,usernameTXT;
+    public Text FirstNameTxt,LastNameTxt,FieldTxt,phonetxt,emailtxt,usernametxt,passwordtxt;
+    public TextField nameTxt,fieldTxt,LastnameTxt,phoneTXT,emailTXT,usernameTXT,passwordTXT;
 
 
 
-    private boolean signUpCheck(TextField kossher,Text text){
+    private boolean signUpCheck(TextField feild,Text text){
             text.setVisible(false);
-            if(kossher.getText().length()==0){
-                text.setText("enter bullshit");
+            if(feild.getText().length()==0){
+                text.setText("enter something");
                 text.setVisible(true);
                 return false;
             }
-            if (kossher.getText().length()>15){
+            if (feild.getText().length()>15){
                 text.setText("must be less than 15 char");
                 text.setVisible(true);
                 return false;
             }
-            for (int i = 0; i <kossher.getText().length(); i++) {
-                if(!Character.isLetter(kossher.getText().charAt(i))) {
+            for (int i = 0; i <feild.getText().length(); i++) {
+                if(!Character.isLetter(feild.getText().charAt(i))) {
                     text.setText("must be letter");
                     text.setVisible(true);
                     return false;
                 }
             }
             return true;
+    }
+    private boolean signUpCheckPasswordAndUsername(TextField feild,Text text){
+        text.setVisible(false);
+        if(fieldTxt.getText().length()==0) {
+            text.setText("enter some bullshit");
+            text.setVisible(true);
+            return false;
+        }
+
+            if (fieldTxt.getText().length()<8||fieldTxt.getText().length()>12){
+                text.setText("between 8 and 12 letters");
+                text.setVisible(true);
+                return false;
+            }
+            return true;
+
     }
 
 
@@ -114,7 +130,13 @@ public class StartPageController {
         b=signUpCheck(fieldTxt,FieldTxt);
         b=signUpCheck(LastnameTxt,LastNameTxt);
         b=signUpCheck(nameTxt,FirstNameTxt);
-        return signUpCheck(nameTxt,FirstNameTxt)&&signUpCheck(LastnameTxt,LastNameTxt)&&signUpCheck(fieldTxt,FieldTxt);
+        b=signUpCheckPasswordAndUsername(usernameTXT, usernametxt);
+        b=signUpCheckPasswordAndUsername(passwordTXT, passwordtxt);
+
+
+        return signUpCheck(nameTxt,FirstNameTxt)&&signUpCheck(LastnameTxt,LastNameTxt)
+                &&signUpCheck(fieldTxt,FieldTxt)&&signUpCheckPasswordAndUsername(passwordTXT, passwordtxt)
+                &&signUpCheckPasswordAndUsername(usernameTXT, usernametxt);
     }
 
     @FXML
