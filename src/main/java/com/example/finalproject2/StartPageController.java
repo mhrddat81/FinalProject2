@@ -72,6 +72,7 @@ public class StartPageController {
                 return false;
             }
         }
+        text.setText("");
         text.setVisible(false);
             return true;
 
@@ -123,7 +124,8 @@ public class StartPageController {
 
     @FXML
     protected void onSecondSignUpBtnClicked(ActionEvent event)throws IOException{
-        if(checkall()){
+        SignUpCheck check =new SignUpCheck();
+        if(check.checkAll()){
             TextInputDialog dialog = new TextInputDialog("hello");
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("StartPage.fxml")));
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
