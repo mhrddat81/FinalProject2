@@ -11,12 +11,15 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Objects;
-
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 
 public class StartPageController {
 
-   private Stage stage;
+
+
+    private Stage stage;
    private Scene scene;
    private Parent root;
     static double ii;
@@ -26,58 +29,138 @@ public class StartPageController {
     public Label signUpMassage;
     public Button SendEmailBtn;
     public ProgressBar prgs;
-    public Text FirstNameTxt,LastNameTxt,FieldTxt,phonetxt,emailtxt,usernametxt,passwordtxt,idtxt;
-    public TextField nameTxt,fieldTxt,LastnameTxt,phoneTXT,emailTXT,usernameTXT,passwordTXT,idTXT;
+
+    @FXML
+    public Text nametxt,Lastnametxt, fieldtxt,phonetxt,emailtxt,usernametxt,passwordtxt,idtxt,datetxt;
+    public TextField nameTXT,fieldTXT,LastnameTXT,phoneTXT,emailTXT,usernameTXT,passwordTXT,idTXT;
+    public DatePicker dateTXT;
 
 
 
-    private boolean signUpCheck(TextField feild,Text text){    //name , last name , field
-            text.setVisible(false);
-            if(feild.getText().length()==0){
-                text.setText("enter something");
-                text.setVisible(true);
-                return false;
-            }
-            if (feild.getText().length()>15){
-                text.setText("must be less than 15 char");
-                text.setVisible(true);
-                return false;
-            }
-            for (int i = 0; i <feild.getText().length(); i++) {
-                if(!Character.isLetter(feild.getText().charAt(i))) {
-                    text.setText("must be letter");
-                    text.setVisible(true);
-                    return false;
-                }
-            }
-            return true;
+    private boolean nameCheck(TextField field, Text text){
+       if (field.getText().length()==0){
+           text.setText("enter Something !");
+           text.setVisible(true);
+           return false;
+       }
+       else if(field.getText().length()>12){
+           text.setText(" Too long !");
+           text.setVisible(true);
+           return false;
+       }
+       else if (field.getText().length()<3){
+           text.setText(" Too short !");
+           text.setVisible(true);
+           return false;
+       }
+           for (int i = 0; i < field.getText().length(); i++) {
+               if (!Character.isLetter(field.getText().charAt(i))) {
+                   text.setText("Only letters !");
+                   text.setVisible(true);
+                  return false;
+               }
+           }
+       return true;
     }
-    private boolean signUpCheckPasswordAndUsername(TextField field,Text text){     // username , password
-        text.setVisible(false);
-        if(fieldTxt.getText().length()==0) {
-            text.setText("enter something");
+
+    private boolean idCheck(TextField field, Text text){
+        if (field.getText().length()==0){
+            text.setText("enter Something");
             text.setVisible(true);
             return false;
         }
+        else if(field.getText().length()>12){
+            text.setText("ID is too long");
+            text.setVisible(true);
+            return false;
+        }
+        else if (field.getText().length()<3){
+            text.setText("ID is too short");
+            text.setVisible(true);
+            return false;
+        }
+        return true;
+    }
 
-            if (fieldTxt.getText().length()<8||fieldTxt.getText().length()>12){
-                text.setText("between 8 and 12 letters");
-                text.setVisible(true);
-                return false;
-            }
-        for (int i = 0; i <field.getText().length(); i++) {
-            if(!(Character.isLetter(field.getText().charAt(i))||Character.isDigit(field.getText().charAt(i)))) {
-                text.setText("must be letter or digit");
+    private boolean phoneCheck(TextField field,Text text){
+        if (field.getText().length()==0){
+            text.setText("enter Something !");
+            text.setVisible(true);
+            return false;
+        }
+        for (int i = 0; i < field.getText().length(); i++) {
+            if (!Character.isLetter(field.getText().charAt(i))) {
+                text.setText("only Numbers");
                 text.setVisible(true);
                 return false;
             }
         }
-        text.setText("");
-        text.setVisible(false);
-            return true;
+        if (!(field.getText().length()==10 || field.getText().length()==6)){
+            text.setText("invalid input");
+            text.setVisible(true);
+            return false;
+        }
+        return true;
+    }
+
+    private boolean usernameCheck(TextField field,Text text){
+        if (field.getText().length()==0){
+            text.setText("enter Something !");
+            text.setVisible(true);
+            return false;
+        }
+        else if(field.getText().length()>12){
+            text.setText(" Too long !");
+            text.setVisible(true);
+            return false;
+        }
+        else if (field.getText().length()<3){
+            text.setText(" Too short !");
+            text.setVisible(true);
+            return false;
+        }
+        return true;
+    }
+
+    private boolean passwordCheck(TextField field ,Text text) {
+        if (field.getText().length() == 0) {
+            text.setText("enter Something !");
+            text.setVisible(true);
+            return false;
+        }
+        if (field.getText().length() < 4) {
+            text.setText("Too short !");
+            text.setVisible(true);
+            return false;
+        }
+        return true;
+    }
+
+    private boolean emailCheck(TextField field,Text text){
+
+        if (field.getText().length()==0){
+            text.setText("enter something !");
+            text.setVisible(true);
+            return false;
+        }
+        return true;
 
     }
 
+    public boolean checkall(){
+        boolean a = nameCheck(nameTXT, nametxt);
+        boolean b = nameCheck(LastnameTXT, Lastnametxt);
+        boolean c = nameCheck(fieldTXT,fieldtxt);
+        boolean d = idCheck(idTXT, idtxt);
+        boolean e = phoneCheck(phoneTXT,phonetxt);
+        boolean f = usernameCheck(usernameTXT,usernametxt);
+        boolean g = passwordCheck(passwordTXT, passwordtxt);
+        boolean h = emailCheck(emailTXT,emailtxt);
+
+
+        return (a && b && c && d && e && f && g && h);
+
+    }
 
 
     @FXML
@@ -124,8 +207,8 @@ public class StartPageController {
 
     @FXML
     protected void onSecondSignUpBtnClicked(ActionEvent event)throws IOException{
-        SignUpCheck check =new SignUpCheck();
-        if(check.checkAll()){
+
+        if(checkall()){
             TextInputDialog dialog = new TextInputDialog("hello");
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("StartPage.fxml")));
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -133,18 +216,6 @@ public class StartPageController {
             stage.setScene(scene);
             stage.show();
         }
-    }
-
-    public boolean checkall(){
-        boolean b=true;
-        b=signUpCheck(fieldTxt,FieldTxt);
-        b=signUpCheck(LastnameTxt,LastNameTxt);
-        b=signUpCheck(nameTxt,FirstNameTxt);
-        b=signUpCheckPasswordAndUsername(usernameTXT, usernametxt);
-        b=signUpCheckPasswordAndUsername(passwordTXT, passwordtxt);
-        return signUpCheck(nameTxt,FirstNameTxt)&&signUpCheck(LastnameTxt,LastNameTxt)
-                &&signUpCheck(fieldTxt,FieldTxt)&&signUpCheckPasswordAndUsername(passwordTXT, passwordtxt)
-                &&signUpCheckPasswordAndUsername(usernameTXT, usernametxt);
     }
 
     @FXML
