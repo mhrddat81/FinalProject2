@@ -21,7 +21,7 @@
       <DatePicker fx:id="dateTXT" layoutX="454.0" layoutY="137.0" prefHeight="26.0" prefWidth="150.0" promptText="DD/MM/YYYY" />
       <Text layoutX="228.0" layoutY="315.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email Adderss" />
       <Text layoutX="228.0" layoutY="375.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone Number" />
-      <Button defaultButton="true" layoutX="467.0" layoutY="539.0" mnemonicParsing="false" onAction="#onSecondSignUpBtnClicked" prefHeight="37.0" prefWidth="150.0" text="sign up" />
+      <Button fx:id="secondSignUpBtn" defaultButton="true" layoutX="467.0" layoutY="539.0" mnemonicParsing="false" onAction="#onSecondSignUpBtnClicked" prefHeight="37.0" prefWidth="150.0" text="sign up" />
       <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#onBackBtnClicked" text="back" />
       <Text fx:id="nametxt" fill="#ff0202" layoutX="233.0" layoutY="114.0" strokeType="OUTSIDE" strokeWidth="0.0" text="err" visible="false" />
       <Text fx:id="Lastnametxt" fill="#ff0202" layoutX="466.0" layoutY="114.0" strokeType="OUTSIDE" strokeWidth="0.0" text="err" visible="false" />

@@ -27,7 +27,7 @@ public class StartPageController {
 
     @FXML
     public Label signUpMassage;
-    public Button SendEmailBtn;
+    public Button SendEmailBtn, secondSignUpBtn;
     public ProgressBar prgs;
 
     @FXML
@@ -38,6 +38,7 @@ public class StartPageController {
 
 
     private boolean nameCheck(TextField field, Text text){
+
        if (field.getText().length()==0){
            text.setText("enter Something !");
            text.setVisible(true);
@@ -147,20 +148,24 @@ public class StartPageController {
 
     }
 
+
+
     public boolean checkall(){
-        boolean a = nameCheck(nameTXT, nametxt);
-        boolean b = nameCheck(LastnameTXT, Lastnametxt);
-        boolean c = nameCheck(fieldTXT,fieldtxt);
-        boolean d = idCheck(idTXT, idtxt);
-        boolean e = phoneCheck(phoneTXT,phonetxt);
-        boolean f = usernameCheck(usernameTXT,usernametxt);
-        boolean g = passwordCheck(passwordTXT, passwordtxt);
-        boolean h = emailCheck(emailTXT,emailtxt);
+        SignUpCheck s =new SignUpCheck();
+        boolean a = s.nameCheck(nameTXT, nametxt);
+        boolean b = s.nameCheck(LastnameTXT, Lastnametxt);
+        boolean c = s.nameCheck(fieldTXT,fieldtxt);
+        boolean d = s.idCheck(idTXT, idtxt);
+        boolean e = s.phoneCheck(phoneTXT,phonetxt);
+        boolean f = s.usernameCheck(usernameTXT,usernametxt);
+        boolean g = s.passwordCheck(passwordTXT, passwordtxt);
+        boolean h = s.emailCheck(emailTXT,emailtxt);
 
 
         return (a && b && c && d && e && f && g && h);
 
     }
+
 
 
     @FXML
