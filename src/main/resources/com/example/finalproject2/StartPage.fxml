@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.finalproject2.StartPageController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseMoved="#captcha" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.finalproject2.StartPageController">
 
    <children>
       <TextField fx:id="UsernameTXT" focusTraversable="false" layoutX="193.0" layoutY="83.0" prefHeight="26.0" prefWidth="214.0" promptText="username" />
@@ -29,6 +29,6 @@
       <Text fx:id="Passwordtxt" fill="#ff0404" layoutX="354.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Error Text" visible="false" />
       <TextField fx:id="captchaTXT" layoutX="317.0" layoutY="206.0" prefHeight="25.0" prefWidth="90.0" promptText="Captcha" />
       <Text fx:id="cpatchatxt" fill="#ff0404" layoutX="354.0" layoutY="249.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Error Text" />
-      <Label fx:id="captchaLbl" layoutX="193.0" layoutY="199.0" onMouseMoved="#captcha" prefHeight="38.0" prefWidth="65.0" text="captcha" textAlignment="JUSTIFY" />
+      <Label fx:id="captchaLbl" layoutX="193.0" layoutY="199.0" prefHeight="38.0" prefWidth="65.0" text="captcha" textAlignment="JUSTIFY" />
    </children>
 </AnchorPane>

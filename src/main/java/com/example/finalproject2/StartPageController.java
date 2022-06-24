@@ -1,5 +1,11 @@
 package com.example.finalproject2;
 
+import javafx.animation.Animation;
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -7,16 +13,14 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.Objects;
+import java.util.Timer;
+import java.util.TimerTask;
 
 
 public class StartPageController {
@@ -40,6 +44,10 @@ public class StartPageController {
 
     @FXML
     public Label captchaLbl;
+
+    @FXML
+    public TextField EmailTXT,EmailCTXT;
+    public Text Emailtxt,EmailCtxt;
 
 
 
@@ -65,12 +73,15 @@ public class StartPageController {
         return (a2 && b2);
     }
 
-    public void captcha() throws FileNotFoundException {
-        InputStream stream = new FileInputStream("\"C:\\Users\\ASUS\\Desktop\\codes\\FinalProject2\\captcha images\"");
-        Image image = new Image(stream);
-        ImageView imageView = new ImageView();
-        imageView.setImage(image);
-        captchaLbl.setGraphic(new ImageView(image));
+    public boolean forgotCheckall(){
+        forgotPaassword f =new forgotPaassword();
+
+        boolean a = f.checkInput(EmailTXT,Emailtxt);
+
+        return (a);
+    }
+
+    public void captcha()  {
 
     }
 
@@ -131,9 +142,18 @@ public class StartPageController {
 
     @FXML
     protected void onSendEmailBtnClicked() {
-        SendEmailBtn.setText("Email sent");
-        prgs.setVisible(true);
-
+        if (forgotCheckall()) {
+            prgs.setVisible(true);
+            Timeline timeline = new Timeline(
+                    new KeyFrame(Duration.ZERO, new KeyValue(prgs.progressProperty(), 0)),
+                    new KeyFrame(Duration.minutes(1), e -> {
+                        prgs.setVisible(false);
+                        System.out.println("Minute over");
+                    }, new KeyValue(prgs.progressProperty(), 1))
+            );
+            timeline.setCycleCount(Animation.INDEFINITE);
+            timeline.play();
+        }
     }
 
     @FXML
