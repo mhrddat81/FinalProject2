@@ -61,6 +61,18 @@ public class SignUpCheck {
             text.setVisible(true);
             return false;
         }
+            for (int i = 0; i < field.getText().length(); i++) {
+                if (!Character.isDigit(field.getText().charAt(i))) {
+                    text.setText("Only Numbers !");
+                    text.setVisible(true);
+                    return false;
+                }
+            }
+        if (!(field.getText().length()==10 || field.getText().length()==6)){
+            text.setText("invalid input");
+            text.setVisible(true);
+            return false;
+        }
         text.setVisible(false);
         return true;
     }
@@ -78,11 +90,14 @@ public class SignUpCheck {
                 return false;
             }
         }
-        if (!(field.getText().length()==10 || field.getText().length()==6)){
-            text.setText("invalid input");
-            text.setVisible(true);
-            return false;
+        for (int i = 0; i < field.getText().length(); i++) {
+            if (!Character.isDigit(field.getText().charAt(i))) {
+                text.setText("Only Numbers !");
+                text.setVisible(true);
+                return false;
+            }
         }
+
         text.setVisible(false);
         return true;
     }

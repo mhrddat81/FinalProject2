@@ -7,26 +7,24 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Objects;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 
 public class StartPageController {
 
-
-
     private Stage stage;
-   private Scene scene;
-   private Parent root;
-    static double ii;
-
+    private Scene scene;
 
     @FXML
-    public Label signUpMassage;
     public Button SendEmailBtn, secondSignUpBtn;
     public ProgressBar prgs;
 
@@ -35,123 +33,18 @@ public class StartPageController {
     public TextField nameTXT,fieldTXT,LastnameTXT,phoneTXT,emailTXT,usernameTXT,passwordTXT,idTXT;
     public DatePicker dateTXT;
 
+    @FXML
+   public  TextField UsernameTXT,PasswordTXT,captchaTXT;
+    public Text Usernametxt, Passwordtxt,captchatxt;
+    public Button loginBtn;
 
-
-    private boolean nameCheck(TextField field, Text text){
-
-       if (field.getText().length()==0){
-           text.setText("enter Something !");
-           text.setVisible(true);
-           return false;
-       }
-       else if(field.getText().length()>12){
-           text.setText(" Too long !");
-           text.setVisible(true);
-           return false;
-       }
-       else if (field.getText().length()<3){
-           text.setText(" Too short !");
-           text.setVisible(true);
-           return false;
-       }
-           for (int i = 0; i < field.getText().length(); i++) {
-               if (!Character.isLetter(field.getText().charAt(i))) {
-                   text.setText("Only letters !");
-                   text.setVisible(true);
-                  return false;
-               }
-           }
-       return true;
-    }
-
-    private boolean idCheck(TextField field, Text text){
-        if (field.getText().length()==0){
-            text.setText("enter Something");
-            text.setVisible(true);
-            return false;
-        }
-        else if(field.getText().length()>12){
-            text.setText("ID is too long");
-            text.setVisible(true);
-            return false;
-        }
-        else if (field.getText().length()<3){
-            text.setText("ID is too short");
-            text.setVisible(true);
-            return false;
-        }
-        return true;
-    }
-
-    private boolean phoneCheck(TextField field,Text text){
-        if (field.getText().length()==0){
-            text.setText("enter Something !");
-            text.setVisible(true);
-            return false;
-        }
-        for (int i = 0; i < field.getText().length(); i++) {
-            if (!Character.isLetter(field.getText().charAt(i))) {
-                text.setText("only Numbers");
-                text.setVisible(true);
-                return false;
-            }
-        }
-        if (!(field.getText().length()==10 || field.getText().length()==6)){
-            text.setText("invalid input");
-            text.setVisible(true);
-            return false;
-        }
-        return true;
-    }
-
-    private boolean usernameCheck(TextField field,Text text){
-        if (field.getText().length()==0){
-            text.setText("enter Something !");
-            text.setVisible(true);
-            return false;
-        }
-        else if(field.getText().length()>12){
-            text.setText(" Too long !");
-            text.setVisible(true);
-            return false;
-        }
-        else if (field.getText().length()<3){
-            text.setText(" Too short !");
-            text.setVisible(true);
-            return false;
-        }
-        return true;
-    }
-
-    private boolean passwordCheck(TextField field ,Text text) {
-        if (field.getText().length() == 0) {
-            text.setText("enter Something !");
-            text.setVisible(true);
-            return false;
-        }
-        if (field.getText().length() < 4) {
-            text.setText("Too short !");
-            text.setVisible(true);
-            return false;
-        }
-        return true;
-    }
-
-    private boolean emailCheck(TextField field,Text text){
-
-        if (field.getText().length()==0){
-            text.setText("enter something !");
-            text.setVisible(true);
-            return false;
-        }
-        return true;
-
-    }
+    @FXML
+    public Label captchaLbl;
 
 
 
-    public boolean checkall(){
-        SignUpCheck s =new SignUpCheck();
+    public boolean signupCheckall(){
+        SignUpCheck s = new SignUpCheck();
         boolean a = s.nameCheck(nameTXT, nametxt);
         boolean b = s.nameCheck(LastnameTXT, Lastnametxt);
         boolean c = s.nameCheck(fieldTXT,fieldtxt);
@@ -161,23 +54,37 @@ public class StartPageController {
         boolean g = s.passwordCheck(passwordTXT, passwordtxt);
         boolean h = s.emailCheck(emailTXT,emailtxt);
 
-
         return (a && b && c && d && e && f && g && h);
-
     }
 
+    public boolean loginCheckall(){
 
+        loginCheck l =new loginCheck();
+        boolean a2 = l.usernameCheck(UsernameTXT, Usernametxt);
+        boolean b2 = l.passwordCheck(PasswordTXT, Passwordtxt);
+        return (a2 && b2);
+    }
+
+    public void captcha() throws FileNotFoundException {
+        InputStream stream = new FileInputStream("\"C:\\Users\\ASUS\\Desktop\\codes\\FinalProject2\\captcha images\"");
+        Image image = new Image(stream);
+        ImageView imageView = new ImageView();
+        imageView.setImage(image);
+        captchaLbl.setGraphic(new ImageView(image));
+
+    }
 
     @FXML
-    protected void onLoginBtnClicked(ActionEvent event)throws IOException {
+    protected void onLoginBtnClicked(ActionEvent event) throws IOException {
 
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("StudentMainPnl.fxml")));
-        stage =(Stage)((Node)event.getSource()).getScene().getWindow();
-        scene =new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        if (loginCheckall()) {
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("StudentMainPnl.fxml")));
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        }
     }
-
 
     @FXML
     protected void onFirstSignUpBtnCLicked(ActionEvent event ) throws IOException {
@@ -186,7 +93,6 @@ public class StartPageController {
         stage =(Stage)((Node)event.getSource()).getScene().getWindow();
         scene =new Scene(root);
         stage.setScene(scene);
-
         stage.show();
 
     }
@@ -213,7 +119,7 @@ public class StartPageController {
     @FXML
     protected void onSecondSignUpBtnClicked(ActionEvent event)throws IOException{
 
-        if(checkall()){
+        if(signupCheckall()){
             TextInputDialog dialog = new TextInputDialog("hello");
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("StartPage.fxml")));
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
