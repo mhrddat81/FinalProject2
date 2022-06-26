@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseMoved="#captcha" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.finalproject2.StartPageController">
+
+   <children>
+      <TextField fx:id="UsernameTXT" focusTraversable="false" layoutX="193.0" layoutY="83.0" prefHeight="26.0" prefWidth="214.0" promptText="username" />
+      <Hyperlink focusTraversable="false" layoutX="192.0" layoutY="160.0" onAction="#onForgotPasswordClicked" text="forgot password?" />
+      <Button fx:id="loginBtn" defaultButton="true" focusTraversable="false" layoutX="192.0" layoutY="268.0" mnemonicParsing="false" onAction="#onLoginBtnClicked" prefHeight="37.0" prefWidth="90.0" text="login">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="signUpBtn" focusTraversable="false" layoutX="317.0" layoutY="267.0" mnemonicParsing="false" onAction="#onFirstSignUpBtnCLicked" prefHeight="38.0" prefWidth="90.0" text="sign up">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <PasswordField fx:id="PasswordTXT" focusTraversable="false" layoutX="192.0" layoutY="135.0" prefHeight="26.0" prefWidth="214.0" promptText="password" />
+      <Text fx:id="Usernametxt" fill="#ff0404" layoutX="354.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Error Text" visible="false" />
+      <Text fx:id="Passwordtxt" fill="#ff0404" layoutX="354.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Error Text" visible="false" />
+      <TextField fx:id="captchaTXT" layoutX="317.0" layoutY="206.0" prefHeight="25.0" prefWidth="90.0" promptText="Captcha" />
+      <Text fx:id="cpatchatxt" fill="#ff0404" layoutX="354.0" layoutY="249.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Error Text" />
+      <Label fx:id="captchaLbl" layoutX="193.0" layoutY="199.0" prefHeight="38.0" prefWidth="65.0" text="captcha" textAlignment="JUSTIFY" />
+   </children>
+</AnchorPane>
