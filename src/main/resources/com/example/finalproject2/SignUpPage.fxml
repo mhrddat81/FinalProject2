@@ -6,33 +6,36 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.finalproject2.StartPageController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="603.0" prefWidth="811.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.finalproject2.StartPageController">
    <children>
-      <TextField fx:id="nameTxt" layoutX="105.0" layoutY="74.0" />
-      <TextField fx:id="LastnameTxt" layoutX="332.0" layoutY="74.0" />
-      <TextField layoutX="105.0" layoutY="245.0" prefHeight="26.0" prefWidth="377.0" promptText="example@email.com" />
-      <TextField layoutX="105.0" layoutY="299.0" prefHeight="26.0" prefWidth="377.0" promptText="09*********" />
-      <TextField layoutX="105.0" layoutY="136.0" promptText="0123456789" />
-      <Text layoutX="105.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First name" />
-      <Text layoutX="332.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last name" />
-      <Text layoutX="105.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID" />
-      <Text layoutX="332.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date of Birth" wrappingWidth="191.607421875" />
-      <DatePicker layoutX="332.0" layoutY="136.0" prefHeight="26.0" prefWidth="150.0" promptText="DD/MM/YYYY" />
-      <Text layoutX="106.0" layoutY="235.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email Adderss" />
-      <Text layoutX="106.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone Number" />
-      <Button defaultButton="true" layoutX="337.0" layoutY="348.0" mnemonicParsing="false" onAction="#onSecondSignUpBtnClicked" prefHeight="37.0" prefWidth="150.0" text="sign up" />
+      <TextField fx:id="passwordTXT" focusTraversable="false" layoutX="227.0" layoutY="265.0" prefHeight="26.0" prefWidth="254.0" />
+      <TextField fx:id="nameTXT" layoutX="227.0" layoutY="75.0" promptText="first name" />
+      <TextField fx:id="LastnameTXT" layoutX="454.0" layoutY="75.0" promptText="last name" />
+      <TextField fx:id="emailTXT" focusTraversable="false" layoutX="227.0" layoutY="325.0" prefHeight="26.0" prefWidth="377.0" promptText="example@email.com" />
+      <TextField fx:id="phoneTXT" focusTraversable="false" layoutX="227.0" layoutY="379.0" prefHeight="26.0" prefWidth="377.0" promptText="09*********" />
+      <TextField fx:id="idTXT" layoutX="227.0" layoutY="137.0" promptText="0123456789" />
+      <Text layoutX="227.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First name" />
+      <Text layoutX="454.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last name" />
+      <Text layoutX="227.0" layoutY="133.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID" />
+      <Text layoutX="454.0" layoutY="133.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date of Birth" wrappingWidth="191.607421875" />
+      <DatePicker fx:id="dateTXT" layoutX="454.0" layoutY="137.0" prefHeight="26.0" prefWidth="150.0" promptText="DD/MM/YYYY" />
+      <Text layoutX="228.0" layoutY="315.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email Adderss" />
+      <Text layoutX="228.0" layoutY="375.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone Number" />
+      <Button fx:id="secondSignUpBtn" defaultButton="true" layoutX="467.0" layoutY="539.0" mnemonicParsing="false" onAction="#onSecondSignUpBtnClicked" prefHeight="37.0" prefWidth="150.0" text="sign up" />
       <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#onBackBtnClicked" text="back" />
-      <Text fx:id="FirstNameTxt" fill="#ff0202" layoutX="111.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="must be smaller than 15 char" />
-      <Text fx:id="LAstNameTxt" fill="#ff0202" layoutX="344.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="must be smaller than 15 char" />
-      <TextField fx:id="fieldTxt" layoutX="105.0" layoutY="187.0" />
-      <TextField layoutX="332.0" layoutY="187.0" />
-      <Text layoutX="105.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Field" />
-      <Text layoutX="332.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username" />
-      <Text fx:id="IdTxt" fill="#ff0202" layoutX="169.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="must be 10 char" />
-      <Text fx:id="DateOfBirthTxt" fill="#ff0202" layoutX="351.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="must be smaller than 15 char" />
-      <Text fx:id="UsernameTxt" fill="#ff0202" layoutX="359.0" layoutY="226.0" strokeType="OUTSIDE" strokeWidth="0.0" text="must be smaller than 15 char" />
-      <Text fx:id="FieldTxt" fill="#ff0202" layoutX="118.0" layoutY="227.0" strokeType="OUTSIDE" strokeWidth="0.0" text="must be smaller than 15 char" />
-      <Text fx:id="EmailTxt" fill="#ff0202" layoutX="335.0" layoutY="287.0" strokeType="OUTSIDE" strokeWidth="0.0" text="letters and number only" />
-      <Text fx:id="PhoneNumberTxt" fill="#ff0202" layoutX="330.0" layoutY="338.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Number only" />
+      <Text fx:id="nametxt" fill="#ff0202" layoutX="233.0" layoutY="114.0" strokeType="OUTSIDE" strokeWidth="0.0" text="err" visible="false" />
+      <Text fx:id="Lastnametxt" fill="#ff0202" layoutX="466.0" layoutY="114.0" strokeType="OUTSIDE" strokeWidth="0.0" text="err" visible="false" />
+      <TextField fx:id="fieldTXT" layoutX="227.0" layoutY="188.0" />
+      <TextField fx:id="usernameTXT" layoutX="454.0" layoutY="188.0" />
+      <Text layoutX="227.0" layoutY="184.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Field" />
+      <Text layoutX="454.0" layoutY="184.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username" />
+      <Text fx:id="idtxt" fill="#ff0202" layoutX="291.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="err" visible="false" />
+      <Text fx:id="datetxt" fill="#ff0202" layoutX="564.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="err" visible="false" />
+      <Text fx:id="usernametxt" fill="#ff0202" layoutX="481.0" layoutY="227.0" strokeType="OUTSIDE" strokeWidth="0.0" text="err" visible="false" />
+      <Text fx:id="fieldtxt" fill="#ff0202" layoutX="240.0" layoutY="228.0" strokeType="OUTSIDE" strokeWidth="0.0" text="err" visible="false" />
+      <Text fx:id="emailtxt" fill="#ff0202" layoutX="479.0" layoutY="367.0" strokeType="OUTSIDE" strokeWidth="0.0" text="err" visible="false" />
+      <Text fx:id="phonetxt" fill="#ff0202" layoutX="536.0" layoutY="425.0" strokeType="OUTSIDE" strokeWidth="0.0" text="err" visible="false" />
+      <Text layoutX="227.0" layoutY="261.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" />
+      <Text fx:id="passwordtxt" fill="#ff1313" layoutX="393.0" layoutY="306.0" strokeType="OUTSIDE" strokeWidth="0.0" text="err" visible="false" />
    </children>
 </AnchorPane>

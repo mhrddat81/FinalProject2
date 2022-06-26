@@ -7,14 +7,12 @@
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.finalproject2.StartPageController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseMoved="#captcha" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.finalproject2.StartPageController">
 
    <children>
-      <TextField focusTraversable="false" layoutX="193.0" layoutY="83.0" prefHeight="26.0" prefWidth="214.0" promptText="username" />
+      <TextField fx:id="UsernameTXT" focusTraversable="false" layoutX="193.0" layoutY="83.0" prefHeight="26.0" prefWidth="214.0" promptText="username" />
       <Hyperlink focusTraversable="false" layoutX="192.0" layoutY="160.0" onAction="#onForgotPasswordClicked" text="forgot password?" />
       <Button fx:id="loginBtn" defaultButton="true" focusTraversable="false" layoutX="192.0" layoutY="268.0" mnemonicParsing="false" onAction="#onLoginBtnClicked" prefHeight="37.0" prefWidth="90.0" text="login">
          <cursor>
@@ -26,21 +24,11 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Label fx:id="welcomeLbl" layoutX="286.0" layoutY="336.0" text="Label" textAlignment="CENTER" />
-      <PasswordField focusTraversable="false" layoutX="192.0" layoutY="135.0" prefHeight="26.0" prefWidth="214.0" promptText="password" />
-      <Label fx:id="signUpMassage" layoutX="265.0" layoutY="47.0" text="Label" textAlignment="CENTER">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Pane layoutX="193.0" layoutY="184.0" prefHeight="66.0" prefWidth="214.0">
-         <children>
-            <TextField layoutX="124.0" layoutY="21.0" prefHeight="25.0" prefWidth="90.0" promptText="Captcha" />
-            <Label layoutX="14.0" layoutY="25.0" text="Captcha Code" />
-            <Text fill="#ff0404" layoutX="162.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Error Text" />
-         </children>
-      </Pane>
-      <Text fill="#ff0404" layoutX="354.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Error Text" />
-      <Text fill="#ff0404" layoutX="354.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Error Text" />
+      <PasswordField fx:id="PasswordTXT" focusTraversable="false" layoutX="192.0" layoutY="135.0" prefHeight="26.0" prefWidth="214.0" promptText="password" />
+      <Text fx:id="Usernametxt" fill="#ff0404" layoutX="354.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Error Text" visible="false" />
+      <Text fx:id="Passwordtxt" fill="#ff0404" layoutX="354.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Error Text" visible="false" />
+      <TextField fx:id="captchaTXT" layoutX="317.0" layoutY="206.0" prefHeight="25.0" prefWidth="90.0" promptText="Captcha" />
+      <Text fx:id="cpatchatxt" fill="#ff0404" layoutX="354.0" layoutY="249.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Error Text" />
+      <Label fx:id="captchaLbl" layoutX="193.0" layoutY="199.0" prefHeight="38.0" prefWidth="65.0" text="captcha" textAlignment="JUSTIFY" />
    </children>
 </AnchorPane>
