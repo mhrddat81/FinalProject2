@@ -93,6 +93,9 @@ public class StartPageController {
     protected void onLoginBtnClicked(ActionEvent event) throws IOException {
 
         if (loginCheckall()) {
+
+
+
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("StudentMainPnl.fxml")));
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             scene = new Scene(root);
@@ -135,20 +138,9 @@ public class StartPageController {
     protected void onSecondSignUpBtnClicked(ActionEvent event)throws IOException{
 
         if(signupCheckall()){
-            try {
-                Class.forName("com.mysql.jdbc.Driver");
-                Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/sexybanana1"
-                        ,"root","");
-                Statement statement = connection.createStatement();
 
-                String sql = "SELECT * FROM akbar";
-
-                ResultSet resultSet = statement.executeQuery(sql);
-                System.out.println(resultSet.getString(1));
-            } catch (ClassNotFoundException | SQLException e) {
-                throw new RuntimeException(e);
-            }
-
+            Connection.insert("student",nameTXT.getText(),LastnameTXT.getText(),fieldTXT.getText(),usernameTXT.getText(),passwordTXT.getText(),
+                    idTXT.getText(),emailTXT.getText(),phoneTXT.getText(),usernameTXT.getText());
 
             TextInputDialog dialog = new TextInputDialog("hello");
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("StartPage.fxml")));

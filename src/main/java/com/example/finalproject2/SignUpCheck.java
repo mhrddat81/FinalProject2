@@ -83,20 +83,6 @@ public class SignUpCheck {
             text.setVisible(true);
             return false;
         }
-        for (int i = 0; i < field.getText().length(); i++) {
-            if (!Character.isLetter(field.getText().charAt(i))) {
-                text.setText("only Numbers");
-                text.setVisible(true);
-                return false;
-            }
-        }
-        for (int i = 0; i < field.getText().length(); i++) {
-            if (!Character.isDigit(field.getText().charAt(i))) {
-                text.setText("Only Numbers !");
-                text.setVisible(true);
-                return false;
-            }
-        }
 
         text.setVisible(false);
         return true;

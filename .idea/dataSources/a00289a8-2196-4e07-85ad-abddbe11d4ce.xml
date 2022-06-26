@@ -1183,14 +1183,14 @@ test\\_%|schema||&apos;&apos;||UPDATE|G</Grants>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <index id="337" parent="335" name="banana">
+    <index id="337" parent="335" name="input">
       <ColNames>name</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="338" parent="335" name="banana">
+    <key id="338" parent="335" name="input">
       <ColNames>name</ColNames>
-      <UnderlyingIndexName>banana</UnderlyingIndexName>
+      <UnderlyingIndexName>input</UnderlyingIndexName>
     </key>
   </database-model>
 </dataSource>
