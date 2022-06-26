@@ -13,6 +13,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -21,6 +22,7 @@ import java.io.IOException;
 import java.util.Objects;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.sql.*;
 
 
 public class StartPageController {
@@ -77,6 +79,8 @@ public class StartPageController {
         forgotPaassword f =new forgotPaassword();
 
         boolean a = f.checkInput(EmailTXT,Emailtxt);
+       // boolean b = f.submit(EmailTXT, EmailCTXT, Emailtxt, EmailCtxt);
+
 
         return (a);
     }
@@ -131,6 +135,21 @@ public class StartPageController {
     protected void onSecondSignUpBtnClicked(ActionEvent event)throws IOException{
 
         if(signupCheckall()){
+            try {
+                Class.forName("com.mysql.jdbc.Driver");
+                Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/sexybanana1"
+                        ,"root","");
+                Statement statement = connection.createStatement();
+
+                String sql = "SELECT * FROM akbar";
+
+                ResultSet resultSet = statement.executeQuery(sql);
+                System.out.println(resultSet.getString(1));
+            } catch (ClassNotFoundException | SQLException e) {
+                throw new RuntimeException(e);
+            }
+
+
             TextInputDialog dialog = new TextInputDialog("hello");
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("StartPage.fxml")));
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

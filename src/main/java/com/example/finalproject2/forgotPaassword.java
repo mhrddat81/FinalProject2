@@ -19,6 +19,18 @@ public class forgotPaassword {
         text.setVisible(false);
        return true;
     }
-
-
+/*
+    public boolean submit(TextField field1,TextField field2, Text text, Text text2){
+        if (checkInput(field1, text)){
+            if (field2.getText().length()==0){
+                text2.setText("Enter something");
+                text2.setVisible(true);
+                return false;
+            }
+            text2.setVisible(false);
+            return true;
+        }
+        return false;
+    }
+ */
 }

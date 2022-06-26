@@ -17,6 +17,7 @@ public class captcha {
     public Text captchatxt;
 
     Image image14518 =new Image(Objects.requireNonNull(getClass().getResourceAsStream("\"C:\\Users\\ASUS\\Pictures\\Saved Pictures\\14518.png\"")));
+    Image image = new Image(getClass().getResourceAsStream("14518.png"));
 
     public void setCaptcha(Image image){
         captchaLbl.setGraphic(new ImageView(image));
